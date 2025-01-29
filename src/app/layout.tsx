@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Orbitron } from "next/font/google";
+import { Poppins } from "next/font/google";
+import { Metadata } from "next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,12 +13,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const orbitron = Orbitron({ subsets: ["latin"] });
-export const metadata: Metadata = {
-  title: "Tristan | My Portfolio",
-  description: "My Portfolio website",
-};
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "800",
+});
 
+export const metadata: Metadata = {
+  title: "Tristan | Portfolio",
+  description: "My Official Portfolio",
+};
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -27,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${orbitron.className} antialiased w-full h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${poppins.className} antialiased`}
       >
         {children}
       </body>
