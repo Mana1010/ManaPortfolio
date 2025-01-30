@@ -7,3 +7,82 @@ import nextjs from "../../public/my_stack/nextjs.svg";
 import typescript from "../../public/my_stack/typescript.svg";
 import javascript from "../../public/my_stack/javascript.svg";
 import tailwind from "../../public/my_stack/tailwind.svg";
+import html from "../../public/my_stack/html.svg";
+import css from "../../public/my_stack/css.svg";
+import redis from "../../public/my_stack/redis.svg";
+import sass from "../../public/my_stack/sass.svg";
+import zustand from "../../public/my_stack/zustand.svg";
+import zod from "../../public/my_stack/zod.svg";
+import reactQuery from "../../public/my_stack/react-query.svg";
+import react from "../../public/my_stack/react.svg";
+
+export const techstack = [
+  {
+    imgUrl: nextjs,
+    name: "Next15",
+  },
+  {
+    imgUrl: react,
+    name: "React",
+  },
+  {
+    imgUrl: nodejs,
+    name: "Nodejs",
+  },
+  {
+    imgUrl: express,
+    name: "ExpressJs",
+  },
+  {
+    imgUrl: mongodb,
+    name: "Mongodb",
+  },
+  {
+    imgUrl: socket,
+    name: "SocketIo",
+  },
+  {
+    imgUrl: redis,
+    name: "Redis",
+  },
+  {
+    imgUrl: tailwind,
+    name: "Tailwind",
+  },
+  {
+    imgUrl: prisma,
+    name: "Prisma",
+  },
+  {
+    imgUrl: typescript,
+    name: "Typescript",
+  },
+  {
+    imgUrl: javascript,
+    name: "Javascript",
+  },
+  {
+    imgUrl: html,
+    name: "Html",
+  },
+  {
+    imgUrl: css,
+    name: "Css",
+  },
+  {
+    imgUrl: sass,
+    name: "Sass",
+  },
+  {
+    imgUrl: zustand,
+    name: "Zustand",
+  },
+  {
+    imgUrl: zod,
+    name: "Zod",
+  },
+  {
+    imgUrl: reactQuery,
+    name: "R. Query",
+  },
+];

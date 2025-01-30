@@ -6,6 +6,7 @@ import jupiter from "../../../public/planets/jupiter.svg";
 import saturn from "../../../public/planets/saturn.svg";
 import earth from "../../../public/planets/earth.svg";
 import tristan from "../../../public/tristan.jpg";
+import { techstack } from "@/constant/techstack.constant";
 
 function About() {
   const [toggle, setToggle] = useState<"overview" | "my-stack">("overview");
@@ -23,8 +24,8 @@ function About() {
           </div>
         </div>
         <div className="flex-grow flex gap-3 flex-col-reverse md:flex-row items-center justify-center px-5">
-          <div className="basis-1/2 h-full relative justify-center flex items-center pt-10">
-            <header className="flex w-full items-center space-x-2 justify-center absolute top-3">
+          <div className="basis-1/2 h-full relative justify-center flex items-center pt-10 flex-col space-y-4">
+            <header className="flex w-full items-center space-x-2 justify-center static md:absolute top-3">
               <div className="rounded-3xl bg-[#ED5565] py-1.5 px-3 flex space-x-2 items-center justify-center">
                 <button
                   onClick={() => setToggle("overview")}
@@ -44,16 +45,40 @@ function About() {
                 </button>
               </div>
             </header>
-            <h3 className="text-white leading-8 tracking-wider text-center md:text-start">
-              Hi! I&apos;m a third-year college student specializing in the MERN
-              stack. I have a strong passion for building various projects,
-              especially real-time applications. With two years of experience in
-              programming and web development, I&apos;m always eager to learn,
-              explore, and improve my skills. I love diving into new
-              technologies and challenging myself with innovative ideas. My goal
-              is to keep growing as a developer and create impactful
-              applications that make a difference!
-            </h3>
+            <div className="pt-5 md:flex-grow md:h-1">
+              {toggle === "overview" ? (
+                <h3 className="text-white leading-8 tracking-wider text-center md:text-start">
+                  Hi! I&apos;m a third-year college student specializing in the
+                  MERN stack. I have a strong passion for building various
+                  projects, especially real-time applications. With two years of
+                  experience in programming and web development, I&apos;m always
+                  eager to learn, explore, and improve my skills. I love diving
+                  into new technologies and challenging myself with innovative
+                  ideas. My goal is to keep growing as a developer and create
+                  impactful applications that make a difference!
+                </h3>
+              ) : (
+                <div className="grid gap-2 grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 justify-center md:overflow-y-auto md:h-full auto-rows-min pr-2">
+                  {techstack.map((techstack, index) => (
+                    <div
+                      key={index}
+                      className="rounded-md border border-zinc-500 flex flex-col items-center justify-center p-3 backdrop-blur-lg space-y-1"
+                    >
+                      <Image
+                        src={techstack.imgUrl}
+                        alt={`${techstack.name}`}
+                        width={50}
+                        height={50}
+                        priority
+                      />
+                      <h1 className="text-white text-sm font-light text-center">
+                        {techstack.name}
+                      </h1>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
           <div className="basis-1/2 flex justify-center items-center h-full">
             <div className="h-full lg:w-[70%] rounded-md backdrop-blur-xl flex-col flex px-4 py-3 border-white border-[1px]">

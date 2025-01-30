@@ -5,11 +5,11 @@ import MyProjects from "./_components/MyProjects";
 function Page() {
   return (
     <div className="w-full h-screen">
-      <div className=" main-background">
-        <Home />
+      <Home />
+      <div className="about-background">
         <About />
+        <MyProjects />
       </div>
-      <MyProjects />
     </div>
   );
 }

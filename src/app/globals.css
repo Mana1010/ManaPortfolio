@@ -7,3 +7,9 @@
   background-position: center;
   background-size: cover;
 }
+
+.about-background {
+  background-image: url("../../public/about-me-background.svg");
+  background-position: center;
+  background-size: cover;
+}

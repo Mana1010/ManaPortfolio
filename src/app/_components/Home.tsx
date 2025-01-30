@@ -20,7 +20,7 @@ function Home() {
   const rightPlanets = [jupiter, saturn, uranus, neptune];
 
   return (
-    <div className={`w-full h-screen relative`}>
+    <div className={`w-full h-screen relative main-background`}>
       <div className=" w-full h-full px-5 flex-col flex items-center justify-center">
         <div className="space-y-3 relative">
           <div className="flex justify-center space-x-5 sm:space-x-10">
@@ -92,7 +92,7 @@ function Home() {
         </div>
         <div className="flex flex-col space-y-2 items-center absolute bottom-16">
           <h1 className="text-white text-sm tracking-wider">SCROLL DOWN</h1>
-          <span className="text-[#FFCE54] text-3xl">
+          <span className="text-[#5D9CEC] text-3xl">
             <RiScrollToBottomFill />
           </span>
         </div>
