@@ -1,3 +1,4 @@
+@import url("https://fonts.cdnfonts.com/css/nickelodeon-sans");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,8 +9,34 @@
   background-size: cover;
 }
 
-.about-background {
+.get-in-touch-background {
   background-image: url("../../public/about-me-background.svg");
+  background-position: center;
+  background-size: cover;
+}
+.works-background {
+  background-image: url("../../public/my-works-background.svg");
+  background-position: center;
+  background-size: cover;
+}
+.about-background {
+  background-image: url("../../public/get-in-touch-background.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+.works-details-background {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../../public/works-details-background.svg");
+  background-position: center;
+  background-size: cover;
+}
+.font-nickelodeon {
+  font-family: "Nickelodeon Sans", sans-serif;
+}
+
+.menu-btn {
+  background-image: url("../../public/svg/asteroid.svg");
   background-position: center;
   background-size: cover;
 }

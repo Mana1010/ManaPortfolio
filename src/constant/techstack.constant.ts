@@ -15,6 +15,12 @@ import zustand from "../../public/my_stack/zustand.svg";
 import zod from "../../public/my_stack/zod.svg";
 import reactQuery from "../../public/my_stack/react-query.svg";
 import react from "../../public/my_stack/react.svg";
+import vscode from "../../public/my_stack/vscode.svg";
+import git from "../../public/my_stack/git.svg";
+import github from "../../public/my_stack/github.svg";
+import figma from "../../public/my_stack/figma.svg";
+import postman from "../../public/my_stack/postman.svg";
+import chatgpt from "../../public/my_stack/chatgpt.svg";
 
 export const techstack = [
   {
@@ -84,5 +90,32 @@ export const techstack = [
   {
     imgUrl: reactQuery,
     name: "R. Query",
+  },
+];
+
+export const tools = [
+  {
+    imgUrl: vscode,
+    name: "VS Code",
+  },
+  {
+    imgUrl: github,
+    name: "Github",
+  },
+  {
+    imgUrl: git,
+    name: "Git",
+  },
+  {
+    imgUrl: figma,
+    name: "Figma",
+  },
+  {
+    imgUrl: postman,
+    name: "Postman",
+  },
+  {
+    imgUrl: chatgpt,
+    name: "Chatgpt",
   },
 ];

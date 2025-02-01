@@ -12,22 +12,42 @@ import saturn from "../../../public/planets/saturn.svg";
 import uranus from "../../../public/planets/uranus.svg";
 import neptune from "../../../public/planets/neptune.svg";
 // import pluto from "../../../public/planets/pluto.svg";
+import Link from "next/link";
 
 // import
 
 function Home() {
   const leftPlanets = [mercury, venus, earth, mars];
   const rightPlanets = [jupiter, saturn, uranus, neptune];
+  const socials = [
+    {
+      name: "Github",
+      link: "https://github.com/Mana1010",
+      icon: <FaGithub />,
+    },
+    {
+      name: "Facebook",
+      link: "https://www.facebook.com/tanvic.clarito?mibextid=ZbWKwL",
+      icon: <FaFacebook />,
+    },
+    {
+      name: "LinkedIn",
+      link: "https://www.linkedin.com/in/tristan-vic-clarito-a256322a0/",
+      icon: <FaLinkedin />,
+    },
+  ];
 
   return (
-    <div className={`w-full h-screen relative main-background`}>
+    <div
+      className={`w-full h-screen relative main-background font-nickelodeon`}
+    >
       <div className=" w-full h-full px-5 flex-col flex items-center justify-center">
         <div className="space-y-3 relative">
           <div className="flex justify-center space-x-5 sm:space-x-10">
             <div className="flex space-x-4 items-end">
-              {leftPlanets.map((planet) => (
+              {leftPlanets.map((planet, index) => (
                 <Image
-                  key={planet}
+                  key={index}
                   src={planet}
                   alt="planet"
                   className="w-[20px] h-[20px] md:w-[35px] md:h-[35px]"
@@ -46,9 +66,9 @@ function Home() {
               <h1 className="text-white text-xl text-center">I AM</h1>
             </div>
             <div className="flex space-x-4 justify-end items-end">
-              {rightPlanets.map((planet) => (
+              {rightPlanets.map((planet, index) => (
                 <Image
-                  key={planet}
+                  key={index}
                   src={planet}
                   alt="planet"
                   className="w-[20px] h-[20px] md:w-[35px] md:h-[35px]"
@@ -67,9 +87,13 @@ function Home() {
             <span className="text-white">|</span> <span>WEB DEVELOPMENT</span>
           </h1>
           <div className="flex items-center justify-center gap-2">
-            <button className="w-1/2 bg-[#0D121C] text-white py-2 rounded-sm">
+            <a
+              href="/pdf/ClaritoResume.pdf"
+              download="ClaritoResume.pdf"
+              className="w-1/2 bg-[#0D121C] text-white py-2 rounded-sm text-center"
+            >
               DOWNLOAD CV
-            </button>
+            </a>
             <button className="w-1/2 border border-[#0D121C] text-white py-2 rounded-sm">
               GET IN TOUCH
             </button>
@@ -77,15 +101,11 @@ function Home() {
           <div className="pt-2 flex items-center justify-center space-x-4">
             <div className="w-[100px] h-0.5 bg-[#FFCE54]"></div>{" "}
             <div className="flex items-center space-x-2 text-white text-xl">
-              <span>
-                <FaGithub />
-              </span>
-              <span>
-                <FaFacebook />
-              </span>
-              <span>
-                <FaLinkedin />
-              </span>
+              {socials.map((social) => (
+                <Link target="_blank" key={social.name} href={social.link}>
+                  {social.icon}
+                </Link>
+              ))}
             </div>
             <div className="w-[100px] h-0.5 bg-[#FFCE54]"></div>{" "}
           </div>
