@@ -4,30 +4,30 @@
 @tailwind utilities;
 
 .main-background {
-  background-image: url("../../public/main-background.svg");
+  background-image: url("/main-background.svg");
   background-position: center;
   background-size: cover;
 }
 
 .get-in-touch-background {
-  background-image: url("../../public/about-me-background.svg");
+  background-image: url("/about-me-background.svg");
   background-position: center;
   background-size: cover;
 }
 .works-background {
-  background-image: url("../../public/my-works-background.svg");
+  background-image: url("/my-works-background.svg");
   background-position: center;
   background-size: cover;
 }
 .about-background {
-  background-image: url("../../public/get-in-touch-background.svg");
+  background-image: url("/get-in-touch-background.svg");
   background-position: center;
   background-size: cover;
 }
 
 .works-details-background {
   background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("../../public/works-details-background.svg");
+    url("/works-details-background.svg");
   background-position: center;
   background-size: cover;
 }
@@ -36,7 +36,7 @@
 }
 
 .menu-btn {
-  background-image: url("../../public/svg/asteroid.svg");
+  background-image: url("/svg/asteroid.svg");
   background-position: center;
   background-size: cover;
 }

@@ -2,24 +2,24 @@
 
 import React, { useState } from "react";
 import pluto from "../../../public/planets/pluto.svg";
-import jupiter from "../../../public/planets/jupiter.svg";
-import saturn from "../../../public/planets/saturn.svg";
-import earth from "../../../public/planets/earth.svg";
-import uranus from "../../../public/planets/uranus.svg";
 import Image from "next/image";
 import { projects } from "@/constant/works.constant";
-import mooonflag from "../../../public/planets/moon-flag.svg";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import WorkList from "./WorkList";
+import { pt3Works } from "@/constant/works.constant";
+import Pt3WorkList from "./Pt3WorkList";
 function MyWorks() {
   const [myWorksToggle, setMyWorksToggle] = useState<
-    "personal" | "school" | "pt3"
+    "personal" | "school" | "none"
   >("personal");
-  const planetListTopBotton = [jupiter, saturn, earth];
-
+  const [pt3Filter, setPt3Filter] = useState<
+    "submitted" | "late-submit" | "failed-submit" | "discontinued"
+  >("submitted");
+  const [togglePt3, setTogglePt3] = useState(false);
+  const filterpt3Works = pt3Works.filter((work) => work.type === pt3Filter);
   const filterProjects = projects.filter(
     (project) => project.type === myWorksToggle
   );
+
   return (
     <div className=" w-full px-4 py-5 flex flex-col space-y-5 works-background">
       <div className="flex flex-col w-fit">
@@ -37,7 +37,10 @@ function MyWorks() {
         <header className="flex w-full items-center space-x-2 md:justify-start justify-center">
           <div className="rounded-3xl bg-[#ED5565] py-1.5 px-3 flex space-x-2 items-center justify-center">
             <button
-              onClick={() => setMyWorksToggle("personal")}
+              onClick={() => {
+                setMyWorksToggle("personal");
+                setTogglePt3(false);
+              }}
               className={`text-white rounded-3xl py-1.5 px-3 ${
                 myWorksToggle === "personal" && "bg-[#0D121C]"
               }`}
@@ -45,7 +48,10 @@ function MyWorks() {
               Personal
             </button>
             <button
-              onClick={() => setMyWorksToggle("school")}
+              onClick={() => {
+                setMyWorksToggle("school");
+                setTogglePt3(false);
+              }}
               className={`text-white rounded-3xl py-1.5 px-3 ${
                 myWorksToggle === "school" && "bg-[#0D121C]"
               }`}
@@ -53,103 +59,69 @@ function MyWorks() {
               School
             </button>
             <button
-              onClick={() => setMyWorksToggle("pt3")}
+              onClick={() => {
+                setTogglePt3(true);
+                setMyWorksToggle("none");
+              }}
               className={`text-white rounded-3xl py-1.5 px-3 ${
-                myWorksToggle === "pt3" && "bg-[#0D121C]"
+                togglePt3 && "bg-[#0D121C]"
               }`}
             >
               PT3 Subject
             </button>
           </div>
         </header>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 justify-center pt-5">
-          {filterProjects.map((project) => (
-            <motion.div
-              layout
-              key={project.name}
-              className="bg-transparent border border-zinc-500 rounded-md h-[250px] grid grid-cols-2 auto-cols-min"
-            >
-              <div className=" backdrop-blur-2xl flex justify-center w-full h-full px-4 flex-col space-y-3 relative">
-                <div className="flex space-x-2 items-center absolute top-3">
-                  {planetListTopBotton.map((planet, index) => (
-                    <Image
-                      key={index}
-                      src={planet}
-                      alt="planet"
-                      width={20}
-                      height={20}
-                      priority
-                    />
-                  ))}
-                </div>
-                <div>
-                  <Image
-                    src={project.img ?? pluto}
-                    width={370}
-                    height={370}
-                    alt="pluto"
-                    priority
-                  />
-                </div>
+        <div className="pt-5">
+          {togglePt3 ? (
+            <div className="flex flex-col space-y-2">
+              <div className="flex space-x-2 items-center">
+                <small className="text-white font-semibold">Filter:</small>
+                <button
+                  onClick={() => setPt3Filter("submitted")}
+                  className={`rounded-sm text-white px-3 py-2 text-[0.8rem] border border-zinc-400 ${
+                    pt3Filter === "submitted" && "bg-[#FFCE54]"
+                  }`}
+                >
+                  Submitted
+                </button>
+                <button
+                  onClick={() => setPt3Filter("late-submit")}
+                  className={`rounded-sm text-white px-3 py-2 text-[0.8rem] border border-zinc-400 ${
+                    pt3Filter === "late-submit" && "bg-[#FFCE54]"
+                  }`}
+                >
+                  Late Submit
+                </button>
+                <button
+                  onClick={() => setPt3Filter("failed-submit")}
+                  className={`rounded-sm text-white px-3 py-2 text-[0.8rem] border border-zinc-400 ${
+                    pt3Filter === "failed-submit" && "bg-[#FFCE54]"
+                  }`}
+                >
+                  Failed Submit
+                </button>
+                <button
+                  onClick={() => setPt3Filter("discontinued")}
+                  className={`rounded-sm text-white px-3 py-2 text-[0.8rem] border border-zinc-400 ${
+                    pt3Filter === "discontinued" && "bg-[#FFCE54]"
+                  }`}
+                >
+                  Discontinued
+                </button>
               </div>
-              <div className="flex works-details-background w-full h-full p-3 flex-col overflow-y-auto relative justify-between space-y-3">
-                <div className="flex space-y-2 flex-col">
-                  <div className="flex items-center space-x-1">
-                    <Image
-                      src={mooonflag}
-                      width={25}
-                      height={25}
-                      alt="moon-flag"
-                      priority
-                    />
-                    <h1 className="text-[#FFCE54] text-xl  font-nickelodeon">
-                      {project.name}
-                    </h1>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Image
-                      src={uranus}
-                      width={25}
-                      height={25}
-                      alt="uranus"
-                      priority
-                    />
-                    <p className="text-white text-[0.8rem]">
-                      {project.description}
-                    </p>
-                  </div>
-                  <div className="grid gap-1.5 grid-cols-2 md:grid-cols-3">
-                    {project.technologies.map((stack) => (
-                      <div
-                        key={stack}
-                        className="bg-[#4D9FD5]/40 rounded-2xl p-1 text-[0.7rem] text-white text-center"
-                      >
-                        {stack}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="flex justify-end items-center space-x-1">
-                  <Link
-                    target="_blank"
-                    href={project.githubLink}
-                    className="rounded-md px-7 py-1.5 backdrop-blur border border-slate-600 font-nickelodeon text-[#ED5565] text-sm"
-                  >
-                    Code
-                  </Link>
-                  {project.appLink && (
-                    <Link
-                      target="_blank"
-                      href={project.appLink}
-                      className={`rounded-md px-7 py-1.5 backdrop-blur border border-slate-600 font-nickelodeon text-[#FFCE54] text-sm `}
-                    >
-                      Site
-                    </Link>
-                  )}
-                </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 justify-center">
+                {filterpt3Works.map((work) => (
+                  <Pt3WorkList key={work.name} activity={work} />
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 justify-center">
+              {filterProjects.map((project) => (
+                <WorkList key={project.name} project={project} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
